@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Browser Test</title>
+    <meta name="description" content="Home">
+</head>
+<body>
+    <table>
+        <tr>
+            <td style="width: 120px;">User Agent</td>
+            <td id="_uagent"></td>
+        </tr>
+        <tr>
+            <td>Device</td>
+            <td id="_device"></td>
+        </tr>
+        <tr>
+            <td>OS</td>
+            <td id="_os"></td>
+        </tr>
+    </table>
+</body>
+<script type="text/javascript">
+    let userAgent = navigator.userAgent.toLocaleLowerCase()
+    let device = 'desktop'
+    let os = 'unknown'
+
+    if(userAgent.match(/ipad/i)) {
+        device = 'tablet'
+        os = 'ios'
+    }
+    else if (userAgent.match(/iphone/i)) {
+        device = 'phone'
+        os = 'ios'
+    }
+    else if (userAgent.match(/android/i)) {
+        device = 'phone'
+        os = 'android'
+    }
+
+    document.getElementById('_uagent').innerText = userAgent
+    document.getElementById('_device').innerText = device
+    document.getElementById('_os').innerText = os
+
+</script>
+</html>
